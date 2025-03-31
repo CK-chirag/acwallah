@@ -41,7 +41,7 @@ export default function HeroSection() {
             </div>
 
             <a href="#" className="card">
-                <img src="../src/assets/vip_image.png" alt="VIP Membership" className="card__img" />
+                <img src="../../src/assets/vip_image.png" alt="VIP Membership" className="card__img" />
                 <div className="card__footer">
                     <div className="card__footer-content">
                         <span className="membership-title">VIP Membership</span>
