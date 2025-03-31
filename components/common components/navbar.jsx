@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo on left */}
         <div className="logo-container">
-          <img src='../src/assets/logo.png' alt="AC Wallah Logo" className="logo" />
+          <img src='../../src/assets/logo.png' alt="AC Wallah Logo" className="logo" />
         </div>
         
         {/* Right side navigation and auth */}
