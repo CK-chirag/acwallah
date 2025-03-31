@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../src/index.css';
+import logo from '../../src/assets/logo.png';
 import Button from './button';
 
 const Navbar = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo on left */}
         <div className="logo-container">
-          <img src='../../src/assets/logo.png' alt="AC Wallah Logo" className="logo" />
+          <img src= {logo} alt="AC Wallah Logo" className="logo" />
         </div>
         
         {/* Right side navigation and auth */}
