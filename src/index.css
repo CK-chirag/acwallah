@@ -1,0 +1,821 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;  
+}
+
+.navbar {
+  background-color: transparent;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  position: relative;
+  /* top: 0; */
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 20px 20px 20px; /* Increased top padding to 40px */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 35px;
+  width: auto;
+}
+
+/* Right side navigation and auth */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #0066cc;
+}
+
+/* Login/Signup Button Styles */
+.default-button {
+  background-color: #0066ff;
+  color: white;
+  font-weight: 500;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5;
+  min-width: 120px;
+}
+
+.default-button:hover {
+  background-color: #0055dd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.default-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.default-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.3);
+}
+
+/* Mobile menu styles */
+.mobile-menu-button {
+  display: none;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: transparent;  /* Changed from white */
+  border-top: 1px solid #eee;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .nav-right {
+    display: none;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: white;
+    border-top: 1px solid #eee;
+  }
+  
+  .mobile-nav-link {
+    padding: 0.75rem 0;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .mobile-login-button {
+    margin-top: 1rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+/* Hero Section Main Container */
+.hero-container {
+  display: flex;
+  background: transparent;
+  padding: 2rem;
+  min-height: 400px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* margin-top: 80px; Adjusted to account for fixed navbar */
+  position: relative;
+  padding: auto;
+}
+
+/* Left Content Area */
+.hero-content {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+/* Hero Text Styling */
+.hero-title {
+  color: #1D1D1D;
+  font-weight: normal;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  font-size: 2.2rem;
+}
+
+/* Text Highlight Styling */
+.highlight {
+  color: #0066ff;
+  font-weight: bold;
+  display: block;
+  margin-top: 12px; /* Increased margin for more space */
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.other-text {
+  color: #1D1D1D;
+  font-weight: normal;
+  display: inline; /* Keep this inline so it stays on the same line */
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+/* Service Icons Section */
+.service-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-item {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon-container {
+  background-color: #0066ff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon {
+  font-size: 1.25rem;
+}
+
+.service-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1d1d1d;
+}
+
+.card {
+  --blur: 16px;
+  width: 400px; /* Fixed width at 400px */
+  height: 280px; /* Fixed height at 200px */
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  color: #000;
+  transform: translateZ(0);
+  margin-left: auto; /* Keeps card on right side */
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
+  transition: transform 0.2s;
+}
+
+.card__footer {
+  padding: 20px 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: hsl(0 0% 100% / 0.7);
+  backdrop-filter: blur(var(--blur));
+  height: auto;
+}
+
+.card__footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.membership-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.membership-desc {
+  font-size: 0.8rem;
+  max-width: 200px;
+}
+
+.card__button {
+  font-size: 12px;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  /* border: none; */
+  border: 1px solid #1d1d1d;
+  cursor: pointer;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.card__button:hover {
+  background-color: #0052a3;
+  border: none;
+  color: white;
+}
+
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  
+  .card {
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  
+  .service-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .highlight, .other-text {
+    font-size: 1.8rem;
+  }
+  
+  .card__footer {
+    padding: 15px 30px;
+  }
+  
+  .membership-title {
+    font-size: 0.9rem;
+  }
+  
+  .membership-desc {
+    font-size: 0.75rem;
+    max-width: 150px;
+  }
+  
+  .card__button {
+    padding: 8px 15px;
+    font-size: 10px;
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .service-icons {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .card__footer {
+    padding: 20px 30px;
+  }
+}
+
+.form-card {
+  background-color: white;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px 50px 40px 50px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  margin-top: 0;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.form-group {
+  flex: 1 1 calc(25% - 1rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #0066ff;
+  margin-bottom: 0.5rem;
+}
+
+.form-group label span {
+  color: red;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: none;
+  border-bottom: 1px solid #a7a7a7;
+  font-size: 1rem;
+  background: transparent; /* Ensure the background is transparent */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-bottom: 2px solid #0066ff; /* Highlight the bottom border on focus */
+  box-shadow: none;
+}
+
+.form-submit {
+  text-align: right;
+  margin-top: 1.5rem;
+}
+.services-block {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next row */
+  justify-content: center; /* Centers the services in each row */
+  row-gap: 2rem; /* Adds spacing between rows */
+  padding: 2rem;
+  column-gap: 4rem;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-heading{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1d1d1d;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sub-heading{
+  font-size: 2rem;
+  color: #0066ff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.service-card {
+  flex: 1 1 100%; /* Each card takes the full width of the container */
+  max-width: 100%; /* Ensures no card exceeds the container width */
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 1rem 0; /* Adds vertical spacing between cards */
+  padding: 1rem;
+}
+
+.service-card__image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border-radius: 10px; /* Keeps the rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-card__content {
+  padding: 1rem;
+}
+
+.service-card__header {
+  display: flex; /* Align items in a row */
+  justify-content: space-between; /* Space between title/price and button */
+  align-items: center; /* Vertically align items */
+  margin-bottom: 1rem; /* Add spacing below the header */
+}
+
+.service-card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.service-card__price {
+  font-size: 1rem;
+  color: #0066ff;
+  margin: 0;
+}
+
+.service-card__details {
+  list-style-type: disc; /* Adds bullet points */
+  padding-left: 1.5rem; /* Adds space between the bullets and the text */
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.service-card__details li {
+  margin-bottom: 0.5rem;
+}
+
+.service-card__details li::marker {
+  color: #0066ff; /* Changes the bullet point color to #0066ff */
+}
+
+.service-card__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-card__link {
+  font-size: 0.9rem;
+  color: #0066ff;
+  text-decoration: none;
+}
+
+.service-card__link:hover {
+  text-decoration: underline;
+}
+
+.aclist-block {
+  max-width: 1200px;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; 
+  gap: 1rem; 
+  padding: 1rem; 
+  margin: 0 auto;
+}
+
+.ac-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures content stays within the container */
+  padding: 1rem;
+  max-width: 320px; /* Adjust the width of the card */
+  margin-bottom: .5rem; /* Adds margin on all sides */
+}
+
+.ac-image {
+  width: 100%; /* Ensures the image fits the container width */
+  height: auto; /* Maintains the aspect ratio of the image */
+  object-fit: contain; /* Ensures the image fits within the container without cropping */
+  border-radius: 10px; /* Adds rounded corners to the image */
+  margin-bottom: 1rem; /* Adds spacing below the image */
+}
+
+.ac-list__title {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  color: #333;
+  margin: 0;
+}
+
+.brand-name {
+  font-weight: bold;
+  margin-right: 0.2rem;
+  color: #0066ff; /* Highlight the brand name */
+}
+
+.reviews-section {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: space-between; /* Space between the header and the card */
+  align-items: center; /* Vertically align items */
+  gap: 2rem; /* Add spacing between the header and the card */
+  padding: 2rem;
+  background-color: #ffffff; 
+  border-radius: 10px; 
+}
+
+.reviews-header {
+  flex: 1; 
+  max-width: 50%; 
+}
+
+.reviews-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1d1d1d;
+  margin-bottom: 1rem;
+  line-height: 1.3; 
+}
+
+.highlight {
+  color: #0066ff;
+  margin-left: 0.5rem; 
+  display: inline-block;
+  margin-bottom: .7rem; 
+}
+
+.reviews-title__line {
+  display: flex; /* Ensures each line is on a new row */
+  align-items: center;
+}
+
+.reviews-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.reviews-navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #0052cc;
+}
+
+.review-card {
+  flex: 1; /* Allow the card to take up available space */
+  max-width: 50%; /* Restrict the width of the card */
+  display: flex;
+  align-items: center;
+  background-color: #0066ff;
+  color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.review-card__image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+}
+
+.review-card__content {
+  flex: 1;
+}
+
+.review-card__name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.review-card__rating {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.review-card__quote {
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.sell-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  background-color: #0066ff; 
+  color: white; 
+  border-radius: 40px; 
+  padding: 2rem 4rem; /* Adds 3rem padding to the left and right */
+  max-width: 1200px; 
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sell-card__content {
+  max-width: 70%; 
+}
+
+.sell-card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.sell-card__desc {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.sell-card__button {
+  background-color: #ffffff;
+  color: #0066ff;
+  font-weight: 500;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5;
+  min-width: 120px;
+}
+
+.sell-card__button:hover {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sell-card__button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sell-card__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(222, 235, 255, 0.3);
+}
+
+.footer {
+  background-color: #0066ff;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1 1 30%;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-details {
+  list-style: none; /* Removes default bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.footer-details li {
+  margin-bottom: 0.5rem; /* Adds spacing between each list item */
+  font-size: 1rem; /* Adjusts font size for better readability */
+  line-height: 1.5; /* Improves line spacing */
+  color: white; /* Sets text color to white */
+}
+
+.footer-details li:last-child {
+  margin-bottom: 0; /* Removes margin from the last item */
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.footer-bottom {
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 1rem;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  text-align: right;
+  flex: 1;
+}
